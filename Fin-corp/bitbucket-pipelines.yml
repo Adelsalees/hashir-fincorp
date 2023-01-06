@@ -1,0 +1,21 @@
+# Bitbucket Pipelines Configuration file
+# https://confluence.atlassian.com/bitbucket/configure-bitbucket-pipelines-yml-792298910.html
+# options:
+  # size: 2x
+  # max-time: 60
+pipelines:
+  default:
+    - step:
+        script:
+          - echo "This script runs on all branches that don't have any specific pipeline assigned in 'branches'."
+  branches:
+    staging:
+      - step:
+          name: rsync
+          script: # https://explainshell.com/explain?cmd=rsync+-zrSlh+--exclude-from%3Ddeployment-exclude-list.txt+.%2F.+%7B%7B+%24remote+%7D%7D
+            - rsync -zrSlh --stats --exclude-from=deployment-exclude-list.txt $BITBUCKET_CLONE_DIR/ $DEPLOY_USER@$STAGING_HOST:$STAGING_PATH
+    production:
+          - step:
+              name: rsync
+              script: # https://explainshell.com/explain?cmd=rsync+-zrSlh+--exclude-from%3Ddeployment-exclude-list.txt+.%2F.+%7B%7B+%24remote+%7D%7D
+                - rsync -zrSlh --stats --exclude-from=deployment-exclude-list.txt $BITBUCKET_CLONE_DIR/ $DEPLOY_USER@$PRODUCTION_HOST:$PRODUCTION_PATH

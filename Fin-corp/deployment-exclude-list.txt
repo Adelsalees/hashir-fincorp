@@ -1,0 +1,2 @@
+bitbucket-pipelines.yml
+deployment-exclude-list.txt
