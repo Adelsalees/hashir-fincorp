@@ -7,8 +7,6 @@
 </head>
 <body class="font-sans antialiased hold-transition sidebar-mini">
     
-
-    <div class="min-h-screen bg-gray-100">
     
         <!-- Navigation Bar -->
         @include('front.layouts.navigation')
@@ -21,7 +19,6 @@
         @include('front.layouts.footer')
         <!-- Footer content -->
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-    </div>
 </body>
 
 @include('front.layouts.scripts')

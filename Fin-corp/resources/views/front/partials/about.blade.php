@@ -3,8 +3,8 @@
     <div class="container" data-aos="fade-up">
       <div class="row gx-0">
 
-        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-          <div class="content">
+        <div class="col-lg-6 d-flex flex-column justify-content-center p-md-0" data-aos="fade-up" data-aos-delay="200">
+          <div class="content ">
             <h3></h3>
             <h2>Stress less. Grow more.</h2>
             <p>
@@ -20,7 +20,7 @@
           </div>
         </div>
 
-        <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+        <div class="col-lg-6 d-flex align-items-center p-md-0" data-aos="zoom-out" data-aos-delay="200">
           <img src="assets/img/about.jpg" class="img-fluid" alt="">
         </div>
 
