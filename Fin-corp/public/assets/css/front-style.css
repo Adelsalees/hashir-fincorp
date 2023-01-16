@@ -1611,11 +1611,14 @@ section {
   margin: 20px 0 10px 0;
 }
 
-.contact .info-box p {
+.contact .info-box p,.contact .info-box a {
   padding: 0;
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
+}
+.contact .info-box a{
+  color: #000;
 }
 
 .contact .php-email-form {

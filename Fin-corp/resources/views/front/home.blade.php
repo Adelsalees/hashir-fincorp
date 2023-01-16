@@ -30,15 +30,15 @@
         <!-- End Services Section -->
     
         <!-- ======= Pricing Section ======= -->
-        @include('front.partials.pricing')
+        {{-- @include('front.partials.pricing') --}}
        <!-- End Pricing Section -->
     
         <!-- ======= F.A.Q Section ======= -->
-        @include('front.partials.faq')
+        {{-- @include('front.partials.faq') --}}
         <!-- End F.A.Q Section -->
     
         <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="portfolio">
+        {{-- <section id="portfolio" class="portfolio">
     
           <div class="container" data-aos="fade-up">
     
@@ -190,10 +190,11 @@
     
           </div>
     
-        </section><!-- End Portfolio Section -->
+        </section> --}}
+        <!-- End Portfolio Section -->
     
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials">
+        {{-- <section id="testimonials" class="testimonials">
     
           <div class="container" data-aos="fade-up">
     
@@ -291,10 +292,11 @@
     
           </div>
     
-        </section><!-- End Testimonials Section -->
+        </section> --}}
+        <!-- End Testimonials Section -->
     
         <!-- ======= Team Section ======= -->
-        <section id="team" class="team">
+        {{-- <section id="team" class="team">
     
           <div class="container" data-aos="fade-up">
     
@@ -385,10 +387,11 @@
     
           </div>
     
-        </section><!-- End Team Section -->
+        </section> --}}
+        <!-- End Team Section -->
     
         <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients">
+        {{-- <section id="clients" class="clients">
     
           <div class="container" data-aos="fade-up">
     
@@ -412,10 +415,11 @@
             </div>
           </div>
     
-        </section><!-- End Clients Section -->
+        </section> --}}
+        <!-- End Clients Section -->
     
         <!-- ======= Recent Blog Posts Section ======= -->
-        <section id="recent-blog-posts" class="recent-blog-posts">
+        {{-- <section id="recent-blog-posts" class="recent-blog-posts">
     
           <div class="container" data-aos="fade-up">
     
@@ -457,7 +461,8 @@
     
           </div>
     
-        </section><!-- End Recent Blog Posts Section -->
+        </section> --}}
+        <!-- End Recent Blog Posts Section -->
     
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
@@ -478,28 +483,30 @@
                     <div class="info-box">
                       <i class="bi bi-geo-alt"></i>
                       <h3>Address</h3>
-                      <p>A108 Adam Street,<br>New York, NY 535022</p>
+                      <p> 1st floor Bilal building,<br>Kolathara po calicut 673655</p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="info-box">
                       <i class="bi bi-telephone"></i>
                       <h3>Call Us</h3>
-                      <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                      <p><a href="tel:+919745421461">+91 97454 21461</a><br>
+                         <a href="tel:+919846055421">+91 98460 55421</a>
+                        </p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="info-box">
                       <i class="bi bi-envelope"></i>
                       <h3>Email Us</h3>
-                      <p>info@example.com<br>contact@example.com</p>
+                      <p><a href="mailto:finprocorporatesolutions@gmail.com">finprocorporatesolutions@gmail.com</a></p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="info-box">
                       <i class="bi bi-clock"></i>
                       <h3>Open Hours</h3>
-                      <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                      <p>Monday - Friday<br>9:00AM - 06:00PM</p>
                     </div>
                   </div>
                 </div>
@@ -543,7 +550,8 @@
     
           </div>
     
-        </section><!-- End Contact Section -->
+        </section>
+        <!-- End Contact Section -->
     
       </main><!-- End #main -->  
 @endsection

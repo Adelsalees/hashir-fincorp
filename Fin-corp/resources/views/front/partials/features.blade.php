@@ -64,7 +64,7 @@
       </div> <!-- / row -->
 
       <!-- Feature Tabs -->
-      <div class="row feture-tabs" data-aos="fade-up">
+      {{-- <div class="row feture-tabs" data-aos="fade-up">
         <div class="col-lg-6">
           <h3>Neque officiis dolore maiores et exercitationem quae est seda lidera pat claero</h3>
 
@@ -134,10 +134,11 @@
           <img src="assets/img/features-2.png" class="img-fluid" alt="">
         </div>
 
-      </div><!-- End Feature Tabs -->
+      </div> --}}
+      <!-- End Feature Tabs -->
 
       <!-- Feature Icons -->
-      <div class="row feature-icons" data-aos="fade-up">
+      {{-- <div class="row feature-icons" data-aos="fade-up">
         <h3>Ratione mollitia eos ab laudantium rerum beatae quo</h3>
 
         <div class="row">
@@ -202,7 +203,8 @@
 
         </div>
 
-      </div><!-- End Feature Icons -->
+      </div> --}}
+      <!-- End Feature Icons -->
 
     </div>
 
