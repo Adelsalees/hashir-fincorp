@@ -1,0 +1,72 @@
+/* service page css */
+.service .container{
+    max-width: 1200px !important;
+}
+.service .banner{
+    padding: 35px 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+     margin-top: 35px; 
+     background-color: #0A645A;
+}
+.service .banner h3{
+    margin: 0;
+    font-size: 45px;
+    font-weight: 700;
+    color: #fff;
+}
+.service .banner p{
+    margin-top: 15px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+.service .banner .banner_form {
+    max-width: 390px;
+    margin: 0 0 0 auto;
+    border-radius: 15px;
+    padding: 25px 20px;
+    margin-top: 40px;
+    background-color: #fff;
+}
+.service .banner .banner_form h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0A645A;
+    margin-bottom: 22px;
+    text-align: center;
+}
+.service .banner .banner_form input,.service .banner .banner_form select,.service .banner .banner_form textarea {
+    font-size: 14px;
+    height: 40px;
+    padding: 5px 10px;
+    color: #0A645A !important;
+    border-color: #0A645A;
+    border: 1px solid;
+    border-radius: 5px;
+    text-transform: capitalize;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.service .banner .banner_form button{
+    margin-top: 30px;
+    background: #0A645A;
+    border: 0px;
+    display: inline-block;
+    padding: 10px 40px 13px;
+    font-size: 18px;
+    color: #fff;
+    border: 2px solid #0A645A;
+    border-radius: 20rem;
+   
+}
+@media screen and (max-width: 767px){
+    .service .banner h3{
+        font-size: 30px;
+    }
+    .service .banner .banner_form{
+        margin-top: 20px;
+    }
+}

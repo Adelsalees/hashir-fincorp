@@ -22,4 +22,5 @@
 </body>
 
 @include('front.layouts.scripts')
+@yield('scripts')
 </html>

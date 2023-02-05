@@ -32,4 +32,21 @@ class EnquiryController extends Controller
             return back()->withErrors(['captcha' => 'ReCaptcha Error']);
         }
     }
+    public function ServiceRequest(Request $request){
+        $resultJson=Gcaptcha::verifyCaptcha( $request->get('recaptcha-response'));
+        if ($resultJson->success != true) {
+            return back()->withErrors(['captcha' => 'ReCaptcha Error']);
+        }
+        if ($resultJson->score >= 0.3) {
+            $data = $request->validate([
+                'name' => 'required|max:255',
+                'email' => 'required|email',
+                'phone' => 'required',
+                'organization' => 'nullable',
+                'country-state' => 'required',
+                'city' => 'required',
+            ]);
+         
+        }
+    }
 }

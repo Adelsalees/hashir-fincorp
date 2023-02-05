@@ -14,7 +14,7 @@
             <i class="ri-discuss-line icon"></i>
             <h3>Trademark Registration</h3>
             <p>Building a brand is an essential step, but protecting it with trademark registration is also key. Trademark registration online provides legal backing for your brand so that you can be sure to keep out all those who run the risk of using your name and work.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <a href="{{ url('/services/trademark-registration') }}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -23,7 +23,7 @@
             <i class="ri-discuss-line icon"></i>
             <h3>Private Limited Company</h3>
             <p>Business registration has never been easier. Simplified company formation procedure makes it possible for you to register your company within hours and make your entrepreneurial dream true.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <a href="{{ url('/services/private-limited-company') }}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -32,7 +32,7 @@
             <i class="ri-discuss-line icon"></i>
             <h3>Proprietorship firm</h3>
             <p>Sole Proprietorship registration is the simplest way to start and run a business in India. It involves minimum paperwork and minimal cost, which makes it the most preferred option among startups.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <a href="{{ url('/services/proprietorship-firm') }}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -41,7 +41,7 @@
             <i class="ri-discuss-line icon"></i>
             <h3>Limited Liability Partnership</h3>
             <p>LLP is a new form of doing business that combines the legal and tax advantages of a limited liability company (LLC) with the management flexibility, reduced costs and quasi-corporate structure of a partnership.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <a href="{{ url('/services/limited-liability-partnership') }}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -50,7 +50,7 @@
             <i class="ri-discuss-line icon"></i>
             <h3>GST Return Filing</h3>
             <p>Taxation is a major responsibility of all entrepreneurs and professionals alike. Registration. Be it returns or payments, we help you with the hassle free and timely filing of GST.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <a href="{{ url('/services/GST-return-filing') }}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -59,7 +59,7 @@
             <i class="ri-discuss-line icon"></i>
             <h3>Accounting & Bookkeeping</h3>
             <p>Accounting is not just about recording the transactions, but also about managing your funds effectively. With timely accounting of all financial transactions, you can keep your focus on core business and ensure error-free accounting.</p>
-            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+            <a href="{{ url('/services/accounting-bookkeeping') }}" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -68,3 +68,5 @@
     </div>
 
   </section>
+
+  

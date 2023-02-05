@@ -358,8 +358,8 @@ section {
 }
 
 .navbar-mobile {
-  position: fixed;
-  overflow: hidden;
+  position: fixed !important;
+  overflow: hidden !important;
   top: 0;
   right: 0;
   left: 0;

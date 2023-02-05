@@ -19,6 +19,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js')}}"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render={{config('envs.recaptcha_key')}}"></script>
 <script>
     //Script to activate menu item based on current URL
     var url = window.location;
@@ -63,3 +64,45 @@
         @endif
     });
 </script>
+<script>
+    $().ready(function(){
+
+        $(document).on('submit', '#enquiry-form', function (event) {
+        
+            var datas = $(this).serialize();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        
+            $(".submit").val('Please wait ..').attr('disabled', true);
+        
+            event.preventDefault();
+            grecaptcha.ready(function () {
+                grecaptcha.execute("{{config('envs.recaptcha_key')}}", {action: "contact"}).then(function (token) {
+                    console.log(datas);
+                    $.ajax({
+                        type: 'post',
+                        url: "{{ url('/service-enquiry') }}",
+                        data: datas + "&recaptcha-response=" + token,
+                        success: function (response) {
+                            if(response.success){
+                                window.location.reload();
+                            }
+                            $(".submit").val('Submit').attr('disabled', true);
+                        },
+                        error: function(jqXhr, json, errorThrown){
+                            var errors = jqXhr.responseJSON;
+                            var errorsHtml = '';
+                            $.each(errors['errors'], function (index, value) {
+                                errorsHtml += '<ul class="list-group"><li class="list-group-item alert alert-danger">' + value + '</li></ul>';
+                                $('.validation-errors').html(errorsHtml);
+                            });
+                        }
+                    });
+                })
+            })
+        });
+    })
+    </script>

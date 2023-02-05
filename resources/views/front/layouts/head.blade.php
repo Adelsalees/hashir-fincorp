@@ -22,7 +22,10 @@
 <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/style.css?v0.2') }}" rel="stylesheet">
+
+<!--Service page CSS File -->
+<link href="{{ asset('assets/css/service.css') }}" rel="stylesheet">
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -37,8 +40,6 @@
 <!-- icheck bootstrap -->
 <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
 
-<!-- Theme style -->
-<link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -46,7 +47,7 @@
 <!-- SweetAlert2 -->
 <link rel="stylesheet" href="{{asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
 
-@livewireStyles
+
 
 <style>
 a.brand-link {

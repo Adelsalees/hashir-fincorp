@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -16,29 +17,23 @@ Route::get('/', function () {
   return view('front.home');
 });
 
-Route::resource('/role', 'Admin\RoleController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);
-Route::post('/role/bulk-delete/', 'Admin\RoleController@destroy');
-Route::resource('/user', 'Admin\UserController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);
-Route::post('/user/bulk-delete/', 'Admin\UserController@destroy');
-Route::resource('/permission', 'Admin\PermissionController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);
-Route::post('/permission/bulk-delete/', 'Admin\PermissionController@destroy');
+// Route::resource('/role', 'Admin\RoleController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);
+// Route::post('/role/bulk-delete/', 'Admin\RoleController@destroy');
+// Route::resource('/user', 'Admin\UserController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);
+// Route::post('/user/bulk-delete/', 'Admin\UserController@destroy');
+// Route::resource('/permission', 'Admin\PermissionController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);
+// Route::post('/permission/bulk-delete/', 'Admin\PermissionController@destroy');
 
-Route::resource('/subuser', 'Admin\SubUserController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);
-Route::post('/subuser/bulk-delete/', 'Admin\SubUserController@destroy');
+// Route::resource('/subuser', 'Admin\SubUserController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);
+// Route::post('/subuser/bulk-delete/', 'Admin\SubUserController@destroy');
 
 
 Auth::routes();
 
 //Front end routes
-Route::get('/home', 'Front\HomeController@index');
-Route::post('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
-
-Route::get('auth/google', 'Front\GoogleController@redirectToGoogle');
-Route::get('auth/google/callback', 'Front\GoogleController@handleGoogleCallback');
-
-Route::get('auth/facebook', 'Front\FacebookController@redirectToFacebook');
-Route::get('auth/facebook/callback', 'Front\FacebookController@handleFacebookCallback');
-
+Route::get('/home', 'Front\HomeController@index')->name('home');
+Route::get('/services/{service}','Front\ServicesController@ServiceDetail');
+Route::post('/service-enquiry','Front\EnquiryController@ServiceRequest')->name('service.enquiry');
 
 //admin end routes
 Route::prefix('admin')->group(function () {
