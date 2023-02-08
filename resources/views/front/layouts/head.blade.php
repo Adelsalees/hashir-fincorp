@@ -12,7 +12,9 @@
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:wght@300;400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <!-- Vendor CSS Files -->
 <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -22,7 +24,7 @@
 <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="{{ asset('assets/css/style.css?v0.2') }}" rel="stylesheet">
+<link href="{{ asset('assets/css/style.css?v0.3') }}" rel="stylesheet">
 
 <!--Service page CSS File -->
 <link href="{{ asset('assets/css/service.css') }}" rel="stylesheet">

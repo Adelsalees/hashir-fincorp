@@ -20,6 +20,12 @@
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js')}}"></script>
   <script src="https://www.google.com/recaptcha/api.js?render={{config('envs.recaptcha_key')}}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/inputmask.min.js" integrity="sha512-czERuOifK1fy7MssE4JJ7d0Av55NPiU2Ymv4R6F0mOGpyPUb9HkP9DcEeE+Qj9In7hWQHGg0CqH1ELgNBJXqGA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+   .grecaptcha-badge {
+            visibility: hidden;
+        }
+  </style>
 <script>
     //Script to activate menu item based on current URL
     var url = window.location;
@@ -66,7 +72,10 @@
 </script>
 <script>
     $().ready(function(){
-
+        $('#modal-close').on('click',function(){
+            console.log('lll')
+            $('.modal').modal('hide');
+        })
         $(document).on('submit', '#enquiry-form', function (event) {
         
             var datas = $(this).serialize();
@@ -76,7 +85,7 @@
                 }
             });
         
-            $(".submit").val('Please wait ..').attr('disabled', true);
+            $(".submit").html('Please wait ..').attr('disabled', true);
         
             event.preventDefault();
             grecaptcha.ready(function () {
@@ -87,10 +96,54 @@
                         url: "{{ url('/service-enquiry') }}",
                         data: datas + "&recaptcha-response=" + token,
                         success: function (response) {
-                            if(response.success){
-                                window.location.reload();
+                            if(response=="OK"){
+                            $('#thanks-modal').modal('show');
+                            $(".submit").html('Submit').removeAttr("disabled");
+                            $('#enquiry-form').trigger('reset');
                             }
-                            $(".submit").val('Submit').attr('disabled', true);
+                        },
+                        error: function(jqXhr, json, errorThrown){
+                            var errors = jqXhr.responseJSON;
+                            var errorsHtml = '';
+                            $.each(errors['errors'], function (index, value) {
+                                errorsHtml += '<ul class="list-group"><li class="list-group-item alert alert-danger">' + value + '</li></ul>';
+                                $('.validation-errors').html(errorsHtml);
+                            });
+                        }
+                    });
+                })
+            })
+        });
+      
+    })
+    </script>
+    <script>
+    $().ready(function(){
+            $(document).on('submit', '#contact-form', function (event) {
+        
+            var datas = $(this).serialize();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        
+            $(".submit").html('Please wait ..').attr('disabled', true);
+        
+            event.preventDefault();
+            grecaptcha.ready(function () {
+                grecaptcha.execute("{{config('envs.recaptcha_key')}}", {action: "contact"}).then(function (token) {
+                    console.log(datas);
+                    $.ajax({
+                        type: 'post',
+                        url: "{{ url('/enquiry') }}",
+                        data: datas + "&recaptcha-response=" + token,
+                        success: function (response) {
+                            if(response=="OK"){
+                            $('#thanks-modal').modal('show');
+                            $(".submit").html('Submit').removeAttr("disabled");
+                            $('#contact-form').trigger('reset');
+                            }
                         },
                         error: function(jqXhr, json, errorThrown){
                             var errors = jqXhr.responseJSON;

@@ -5,32 +5,88 @@
         <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-6 col-md-12 col-12">
-                 <div class="banner_text_section">
+              @if (str_replace('-',' ',Request::segment(2))=="trademark registration")
+                  <div class="banner_text_section">
                    <h3 class="color_white" data-aos="fade-up"  data-aos-delay="400"> 
-                     <b>Take the first step to creating your own brand and business</b>
+                     <b>Protect Your Brand</b>
                    </h3>
-                   <p class="color_white" data-aos="fade-up"  data-aos-delay="400">Setting up a private limited company is one of the quickest ways to start a business in India. With a little bit of paperwork and some patience, you can be on your way to your new business venture.</p>
+                   <p class="color_white" data-aos="fade-up"  data-aos-delay="400">Your business needs trademarks to identify its products or services, for brand loyalty and identity, and to distinguish it from competitors. A registered trademark will not only protect your name and logo from others using them inappropriately but also help you stand out from the crowd.</p>
                    <!-- <div class="button">
                      <a href="#we_deliver" class="btn btn_yellow_">Let’s Get Started</a>
                    </div> -->
                  </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="private limited company")
+                 <div class="banner_text_section">
+                    <h3 class="color_white" data-aos="fade-up"  data-aos-delay="400"> 
+                      <b>Take the first step to creating your own brand and business</b>
+                    </h3>
+                    <p class="color_white" data-aos="fade-up"  data-aos-delay="400">Setting up a private limited company is one of the quickest ways to start a business in India. With a little bit of paperwork and some patience, you can be on your way to your new business venture.</p>
+                    <!-- <div class="button">
+                      <a href="#we_deliver" class="btn btn_yellow_">Let’s Get Started</a>
+                    </div> -->
+                 </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="proprietorship firm")
+                   <div class="banner_text_section">
+                    <h3 class="color_white" data-aos="fade-up"  data-aos-delay="400"> 
+                      <b>Get a Proprietorship Firm Registered Instantly</b>
+                    </h3>
+                    <p class="color_white" data-aos="fade-up"  data-aos-delay="400">Finpro facilitates registration of proprietorship Firm in India through local license or registration, as well as tax registration. A proprietorship firm is the simplest form of business registration where the responsibility of operation and running the business lies solely with the owner.</p>
+                    <!-- <div class="button">
+                      <a href="#we_deliver" class="btn btn_yellow_">Let’s Get Started</a>
+                    </div> -->
+                 </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="limited liability partnership")
+                   <div class="banner_text_section">
+                    <h3 class="color_white" data-aos="fade-up"  data-aos-delay="400"> 
+                      <b>Get your LLP Registered @ ₹ 3999/-s</b>
+                    </h3>
+                    <p class="color_white" data-aos="fade-up"  data-aos-delay="400">You may be a sole proprietor, a partnership, or a company. But one thing is for sure, you want your business to be recognized in the market and create an impact by introducing it to as many people as possible. At Finpro, this becomes a reality by helping you get your limited liability partnership registered at just ₹ 3999/-*</p>
+                    <!-- <div class="button">
+                      <a href="#we_deliver" class="btn btn_yellow_">Let’s Get Started</a>
+                    </div> -->
+                 </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="GST return filing")
+                   <div class="banner_text_section">
+                    <h3 class="color_white" data-aos="fade-up"  data-aos-delay="400"> 
+                      <b>All-in-one GST filing package</b>
+                    </h3>
+                    <p class="color_white" data-aos="fade-up"  data-aos-delay="400">Our GST filing package will make GST returns filing easy as pie. We’ll process all your monthly GST return so you can focus on growing your business.</p>
+                    <!-- <div class="button">
+                      <a href="#we_deliver" class="btn btn_yellow_">Let’s Get Started</a>
+                    </div> -->
+                 </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="accounting bookkeeping")
+                <div class="banner_text_section">
+                    <h3 class="color_white" data-aos="fade-up"  data-aos-delay="400"> 
+                      <b>Your virtual accounting expert</b>
+                    </h3>
+                    <p class="color_white" data-aos="fade-up"  data-aos-delay="400">Ensure your business is performing at its optimum level by partnering with our virtual accounting services. Finpro provides you with a full range of virtual accounting services to ensure that your business remains streamlined and profitable. By ensuring that your accounts are up-to-date and errors reduced, we help you keep on top of your finances while providing additional benefits like improved cash flow and profitability.</p>
+                    <!-- <div class="button">
+                      <a href="#we_deliver" class="btn btn_yellow_">Let’s Get Started</a>
+                    </div> -->
+                 </div>
+              @endif
+               
               </div>
               <div class="col-lg-6 col-md-12 col-12">
   
                 <form class="banner_form bg_white" data-aos="zoom-out" data-aos-delay="200" method="POST" action="{{ route('service.enquiry') }}" id="enquiry-form">
-                 <input type="hidden" name="form_name" value="Bizpole">
-                 <h3>Private Limited Company</h3>
+                    @if(str_replace('-',' ',Request::segment(2))=="accounting bookkeeping")
+                     <h3>Accounting / Bookkeeping</h3>
+                    @else
+                     <h3>{{ str_replace('-',' ',Request::segment(2)) }}</h3>
+                    @endif
                  <span id="msg"></span>
                  <div class="row_flx">
                   <div class="w_100">
-                    <input type="hidden" name="service" value="Private Limited Company">
+                    <input type="hidden" name="service" value="{{str_replace('-',' ',Request::segment(2)) }}">
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
                   </div>
                   <div class="w_100">
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" required >
+                    <input type="text" class="form-control" id="email" name="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Email" required >
                   </div>
                   <div class="w_100">
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Contact Number" required>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Contact Number"  data-inputmask='"mask": "+91 (999) 999-9999"' data-inputmask-clearincomplete="true" data-mask required>
                   </div>
                   <div class="w_100">
                     <input type="text" class="form-control" id="organization" name="organization" placeholder="Organization Name" required>
@@ -736,6 +792,687 @@
     </div>
 
 </section>
+  <section class="help_section text-center ">
+      <div class="container">
+         @if (str_replace('-',' ',Request::segment(2))=="trademark registration")
+              <div class="head_sec wow  text-center" style="margin-bottom:40px">
+                <h2 class="trade-head">Types of Trademark Registration</h2>
+                <p class="trade-para">When it comes to trademarking your brand, it's a jungle out there. But if you don't know which aspect(s) of <br> your brand image is worth protecting, it can be like wandering around in the dark. So let us help you find the light.</p>
+              </div> 
+                <div>
+                  <div class="banner_count_boxs">
+                    <div class="row">
+
+                      <div class="col-md-4 wow ">
+                        <div class="banner_count_box text-center" data-aos="fade-up" data-aos-delay="200">
+                          <h3>Product Mark</h3>
+                          <p>Unlike a service mark, which is used to identify a business and its services, a product mark identifies the origin of a good or product. A product mark also helps preserve the company's reputation.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 wow ">
+                        <div class="banner_count_box text-center "  data-aos="fade-down" data-aos-delay="200">
+                          <h3>Service Mark</h3>
+                          <p>A service mark is similar to a product mark, but instead of identifying the source of goods, it identifies the source of services. Yahoo, for example, may brand certain products with a trademark; however, it uses a service mark on its internet searching service.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 wow ">
+                        <div class="banner_count_box text-center " data-aos="fade-up" data-aos-delay="200">
+                          <h3>Collective Mark</h3>
+                          <p>The collective mark informs the public about the unique characteristics of the goods and services that are used to represent a group. A trademark holder can be an association, a public institution, or a Section 8 corporation.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 wow ">
+                        <div class="banner_count_box text-center " data-aos="fade-up" data-aos-delay="200">
+                          <h3>Certification Mark</h3>
+                          <p>A certification mark is a sign, indicating that the goods/services are certified by the owner of the sign in terms of origin, material, quality and accuracy. This differs from a standard trademark and distinguishes goods/services that originate from a single company.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 wow ">
+                        <div class="banner_count_box text-center " data-aos="fade-down" data-aos-delay="200">
+                          <h3>Shape Marks</h3>
+                          <p>Shape marks are used to distinguish the shape of a product so that customers will associate it with a specific manufacturer, thereby increasing brand recognition and sales.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 wow ">
+                        <div class="banner_count_box text-center " data-aos="fade-up" data-aos-delay="200">
+                          <h3>Pattern Mark</h3>
+                          <p>The pattern marks are for products that have a uniquely designed pattern. If the pattern is not distinct, it will not be registered.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 wow ">
+                        <div class="banner_count_box text-center "  data-aos="fade-up" data-aos-delay="200">
+                          <h3>Sound Mark</h3>
+                          <p>A sound mark is a catchy tune, jingle, or mnemonic that identifies a brand or product. It can be used to help people remember the name of a product or service. One of the most well-known sound marks in India is the tune for IPL.</p>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="private limited company")
+                 <div class="row align-items-center bg_white_box"  data-aos="zoom-in">
+                  <div class="col-lg-6 col-sm-12 col-12">
+                    <div class="help_txt mb-2">
+                      <h3 class="color_white" style="margin-bottom: 0px; text-align: center;" data-aos="zoom-out" data-aos-delay="200">Prosper with a private limited company</h3>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12 col-12">
+                    <div class="help_txt text-left">
+                    <p>Most new businesses in India opt for a private limited company due to the flexibility it offers. You can make your own rules, appoint board members and decide whom to partner with — all within limits. Private limited company offers limited liability for its shareholders, with certain restrictions placed on ownership. This makes a private limited company ideal for companies that wish to raise funds from the public.</p>
+                    </div>
+                  </div>
+               </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="proprietorship firm")
+                   <div class="row align-items-center bg_white_box"  data-aos="zoom-in">
+                    <div class="col-lg-6 col-sm-12 col-12">
+                      <div class="help_txt mb-2">
+                        <h3 class="color_white" style="margin-bottom: 0px; text-align: center;" data-aos="zoom-out" data-aos-delay="200">Simplified business ownership</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-12">
+                      <div class="help_txt text-left">
+                      <p>Sole proprietorship structure is very easy to get started and in many cases, offers the lowest cost of entry for starting a business. It is also a simple way for freelancers and other self-employed professionals to get paid for their work by setting up a company that has no more than one owner.</p>
+                      </div>
+                    </div>
+                  </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="limited liability partnership")
+                  <div class="row align-items-center bg_white_box"  data-aos="zoom-in">
+                    <div class="col-lg-6 col-sm-12 col-12">
+                      <div class="help_txt mb-2">
+                        <h3 class="color_white" style="margin-bottom: 0px; text-align: center;" data-aos="zoom-out" data-aos-delay="200">Limited Liability. Unlimited Partnership</h3>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-12">
+                      <div class="help_txt text-left">
+                      <p>Limited Liability Partnership is the best of both worlds. It keeps all the benefits of a partnership firm and allows you to enjoy limited liability, so if things go wrong then your personal assets are safe. It's quick and easy to get your LLP registered with Finpro.</p>
+                      </div>
+                    </div>
+                  </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="GST return filing")
+                    <div class="row align-items-center bg_white_box"  data-aos="zoom-in">
+                    <div class="col-lg-6 col-sm-12 col-12">
+                      <div class="help_txt mb-2">
+                        <h3 class="color_white" style="margin-bottom: 0px; text-align: center;" data-aos="zoom-out" data-aos-delay="200">Features/Importance of GST</h3>
+                        <p class="text-white text-start">Here are the major reasons why people opt for this service:</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-12">
+                      <div class="help_txt text-left">
+                      <ul>
+                        <li>GST eliminates the cascading effect. Therefore, you are no longer subject to paying tax on tax. This saves you money.</li>
+                        <li>Higher threshold for sale of goods and services. This means small businesses falling below the limit are not subject to GST.</li>
+                        <li>Easier for startups and e-commerce businesses</li>
+                        <li>More organised system</li>
+                      </ul>
+                      </div>
+                    </div>
+                  </div>
+              @elseif(str_replace('-',' ',Request::segment(2))=="accounting bookkeeping")
+                <div class="row align-items-center bg_white_box"  data-aos="zoom-in">
+              <div class="col-lg-6 col-sm-12 col-12">
+                <div class="help_txt mb-2">
+                  <h3 class="color_white" style="margin-bottom: 0px; text-align: left;" data-aos="zoom-out" data-aos-delay="200">You need accounting services if you:</h3>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12 col-12">
+                <div class="help_txt text-left">
+                 <ul>
+                <li>Never get your financial reports when you need them</li>
+                <li>Need to know where your company stands financially</li>
+                <li>Don’t trust the accuracy of my company’s accounting records</li>
+                <li>Don’t have the time</li>
+                <li>Find hiring and training an accountant a hassle</li>
+              </ul>
+                </div>
+              </div>
+            </div>
+
+              @endif
+           
+      </div>
+  </section>
+              @if (str_replace('-',' ',Request::segment(2))=="trademark registration")
+                <section class="LLP" data-wow-delay="0.3s" >
+                    <div class="container">
+                      
+                      <div class="head_sec text-center">
+                        <div class="row align-items-center">
+                          <div class="col-lg-10 col-sm-12 text-left" >
+                            <h2 class="llp-head"  data-aos="fade-up" data-aos-delay="400">Trademark Registration made easy</h2>
+                            <p class="llp-para"  data-aos="fade-up" data-aos-delay="400">Here’s everything you need to know:</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <ul class="nav nav-tabs"  data-aos="fade-up" data-aos-delay="400" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Eligibility Criteria</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Documents Required</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Process</a>
+                        </li>
+                      </ul><!-- Tab panes -->
+                      <div class="tab-content"  data-aos="fade-up" data-aos-delay="400">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="round_box">
+                              <p class="p_rel"> individual or company can apply for a trademark so that their product or service can be protected. The application must include the trademark, the applicant's name and address, as well as the agent and the power of attorney.</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                              <div>
+                                <p class="p_rel"> Proof of Applicant</p>
+                                <p class="p_rel"> Brand name and logo</p>
+                                <p class="p_rel"> User Affidavit</p>
+                                <p class="p_rel"> Proof of TM use</p>
+                                <p class="p_rel"> MSME/Startup Recognition</p>
+                                <p class="p_rel"> Signed form TM-48</p>
+                              </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="steps">
+                              <div class="step">
+                                <div>
+                                  <p><b>Step 1:</b> Trademark Search</p> 
+                                  <p><b>Step 2:</b> Selection of Classes</p> 
+                                  <p><b>Step 3:</b> Application filing (Get ™ number)</p> 
+                                  <p><b>Step 4:</b> Use ™ symbol</p>
+                                  <p><b>Step 5:</b> Application processing begins</p>
+                                  <p><b>Step 6:</b> Objection on the Trademark Application</p>
+                                  <p><b>Step 7:</b> Hearing</p>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+           
+              @elseif(str_replace('-',' ',Request::segment(2))=="private limited company")
+               <section class="LLP" data-wow-delay="0.3s" >
+                    <div class="container">
+                      
+                      <div class="head_sec text-center">
+                        <div class="row align-items-center">
+                          <div class="col-lg-10 col-sm-12 text-left">
+                            <h2 class="llp-head"  data-aos="fade-up" data-aos-delay="400">Private Limited Registration made easy!</h2>
+                            <p class="llp-para"  data-aos="fade-up" data-aos-delay="400">Here’s everything you need to know:</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <ul class="nav nav-tabs"  data-aos="fade-up" data-aos-delay="400" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Eligibility Criteria</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Documents Required</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Process</a>
+                        </li>
+                      </ul><!-- Tab panes -->
+                      <div class="tab-content"  data-aos="fade-up" data-aos-delay="400">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                          <div class="round_box">
+                            <p class="p_rel"> Minimum 2 directors </p>
+                            <p class="p_rel"> A unique name for your business</p>
+                            <p class="p_rel"> Minimum authorized capital of at least ₹1 lakh </p>
+                            <p class="p_rel"> A registered office </p>
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                             <div>
+                                <p>You would need scanned copies of:</p>
+                                <!-- <p class="p_rel"> PAN card or passport (in case of foreign nationals & NRIs)  </p>
+                                <p class="p_rel"> Voter ID/passport/driving license </p>
+                                <p class="p_rel"> Scanned passport-sized photograph</p>
+                                <p class="p_rel"> Specimen signature (blank document with signature [directors only])</p>
+                                <p class="p_rel"> Latest bank statement/telephone or mobile bill/electricity or gas bill</p>
+                                <p class="p_rel"> Notarized rental agreement in English</p>
+                                <p class="p_rel"> No-objection certificate from the property owner</p>
+                                <p class="p_rel"> Sale deed/property deed in English (in case of owned property)</p> -->
+
+                                <p><b>Director's Documents</b></p>
+                                <p class="p_rel"> Director's PAN</p>
+                                <p class="p_rel"> Director's ID Proofs</p>
+                                <p class="p_rel"> Aadhaar Card or Voter ID or Passport or Driver's License</p>
+                                <p class="p_rel"> Address Proofs:</p>
+                                <p class="p_rel"> Latest one month Savings Bank statement or</p>
+                                <p class="p_rel"> Latest Telephone Bill on his own name or</p>
+                                <p class="p_rel"> Latest Moblie Bill on his name or</p>
+                                <p class="p_rel"> Latest Electricity Bill on his own name.</p>
+                                <p class="p_rel"> Director's latest passport size photograph</p>
+                                <p class="p_rel"> Director's Email ids</p>
+                                <p class="p_rel"> Incase of Foreign directors, International Passport is mandatory</p>
+
+                                <p><b>Company Documents</b></p>
+                                <p class="p_rel"> Registered Office Address Proof: Latest Power Bill</p>
+                                <p class="p_rel"> No-objection letter from the Landlord.</p>
+                                <p class="p_rel"> Rental Agreement from the landlord if the premises are rented.</p>
+                                <p class="p_rel"> Company email id.</p>
+
+                              </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="steps">
+                              <div class="step">
+                                <div>
+                                    <!-- <p><b>Step 1:</b> Arrange basic documents of Partners</p> 
+                                    <p><b>Step 2:</b> Fill in an online form with accurate information</p> 
+                                    <p><b>Step 3:</b> Apply for Digital Signature and DIN of Partners</p> 
+                                    <p><b>Step 4:</b> Prepare all legal documents</p> 
+                                    <p><b>Step 5:</b> Apply for name availability </p> 
+                                    <p><b>Step 6:</b> Submit MoA, AoA, Declaration from Directors and Affidavits of the Directors </p> 
+                                    <p><b>Step 7:</b> Collect Subscriber information such as address, occupation, nature of shares, number of shares subscribed etc </p> 
+                                    <p><b>Step 8:</b> Apply for the PAN and TAN of the company </p> 
+                                    <p><b>Step 9:</b> Obtain certificate of incorporation by ROC with a PAN and TAN </p> 
+                                    <p><b>Step 10:</b> Open a current bank account on the company’s name </p> -->
+
+                                <!--  <p><b>Step 1:</b> Reservation of Company’s Name</p>
+                                  <p><b>Step 2:</b> Collection of Directors and Company reg office docs</p>
+                                  <p><b>Step 3:</b> Procuring Digital Signature Certificate</p>
+                                  <p><b>Step 4:</b> Writing MoA & AOA</p>
+                                  <p><b>Step 5:</b> Application for the Incorporation of Company</p>
+                                  <p><b>Step 6:</b> Approval of Company registration</p>
+                                  <p><b>LLP</b></p> 
+                                  <p><b>Step 1:</b> Reservation of LLP’s Name </p>
+                                  <p><b>Step 2:</b> Collection of Partners and LLP reg office docs</p>
+                                  <p><b>Step 3:</b> Procuring Digital Signature Certificate</p>
+                                  <p><b>Step 4:</b> Application for the Incorporation of LLP</p>
+                                  <p><b>Step 5:</b> Approval of LLP registration</p>
+                                  <p><b>Step 6:</b> Writing LLP Deed</p>
+                                  <p><b>Step 7:</b> Filing of LLP Deed</p> -->
+
+                                  <!-- <p><b>Step 1:</b> Wind Up of Company</p>
+                                  <p><b>Step 2:</b> Dissolution of Company</p>
+                                  <p><b>Step 3:</b> Process of Winding up and Dissolution of Company</p>
+                                  <p><b>LLP</b></p>
+                                  <p><b>Step 1:</b> Striking Off Name of LLP</p>
+                                  <p><b>Step 2:</b> Procedure for Striking Off Name</p>
+                                  <p><b>Step 3:</b> Partners Liability After Striking Off</p> -->
+
+                                  <p><b>Step 1:</b> Arrange basic documents of Partners</p> 
+                                  <p><b>Step 2:</b> Fill in an online form with accurate information</p> 
+                                  <p><b>Step 3:</b> Apply for Digital Signature and DIN of Partners</p> 
+                                  <p><b>Step 4:</b> Prepare all legal documents</p> 
+                                  <p><b>Step 5:</b> Apply for name availability </p> 
+                                  <p><b>Step 6:</b> Submit MoA, AoA, Declaration from Directors and Affidavits of the Directors </p> 
+                                  <p><b>Step 7:</b> Collect Subscriber information such as address, occupation, nature of shares, number of shares subscribed etc </p> 
+                                  <p><b>Step 8:</b> Apply for the PAN and TAN of the company </p> 
+                                  <p><b>Step 9:</b> Obtain certificate of incorporation by ROC with a PAN and TAN </p> 
+                                  <p><b>Step 10:</b> Open a current bank account on the company’s name </p>
+
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+               </section>
+              @elseif(str_replace('-',' ',Request::segment(2))=="proprietorship firm")
+                <section class="LLP" data-wow-delay="0.3s" >
+                    <div class="container">
+                      
+                      <div class="head_sec text-center">
+                        <div class="row align-items-center">
+                          <div class="col-lg-10 col-sm-12 text-left">
+                            <h2 class="llp-head"  data-aos="fade-up" data-aos-delay="400">Sole proprietorship formation made easy!</h2>
+                            <p class="llp-para"  data-aos="fade-up" data-aos-delay="400">Here’s everything you need to know:</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <ul class="nav nav-tabs"  data-aos="fade-up" data-aos-delay="400" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Eligibility Criteria</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Documents Required</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Process</a>
+                        </li>
+                      </ul><!-- Tab panes -->
+                      <div class="tab-content"  data-aos="fade-up" data-aos-delay="400">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="round_box">
+                              <p class="p_rel"> Registration under MSME Act (Udyam) for smooth business operations </p>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div>
+                              <p class="p_rel">PAN card (Mandatory)</p>
+                              <p class="p_rel">Photo</p>
+                              <p class="p_rel">Address proof</p>
+                              <p class="p_rel">Utility bill of the Firm register office</p>
+                              <p class="p_rel">Bank details like bank statement, cancelled cheque</p>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="steps">
+                              <div class="step">
+                               <div>
+                                  <p><b>Step 1:</b> There is no defined mechanism for registration of a proprietorship firm. The easiest way to register a proprietorship is through Local License / Registration and Tax registration.</p> 
+                                  <p><b>Step 2:</b> We will work with the authorities to ensure that all the appropriate forms are properly filled in, and to make sure that you perform your duties in a timely manner. This could vary between 5 and 15 days depending on your situation.</p> 
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+              @elseif(str_replace('-',' ',Request::segment(2))=="limited liability partnership")
+                   <section class="LLP" data-wow-delay="0.3s" >
+                    <div class="container">
+                      
+                      <div class="head_sec text-center">
+                        <div class="row align-items-center">
+                          <div class="col-lg-10 col-sm-12 text-left">
+                            <h2 class="llp-head"  data-aos="fade-up" data-aos-delay="400">LLP Incorporation made easy</h2>
+                            <p class="llp-para"  data-aos="fade-up" data-aos-delay="400">Here’s everything you need to know:</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <ul class="nav nav-tabs"  data-aos="fade-up" data-aos-delay="400" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Eligibility Criteria</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Documents Required</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Process</a>
+                        </li>
+                      </ul><!-- Tab panes -->
+                      <div class="tab-content"  data-aos="fade-up" data-aos-delay="400">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                           <div class="round_box">
+                            <!-- <p class="p_rel"> Forming an LLP requires at least two partners (no maximum number)</p>
+                            <p class="p_rel"> In the case of a body corporate partner, a natural person should be nominated for representation</p>
+                            <p class="p_rel"> There is no concept of shared capital, but each partner has to contribute towards capital of LLP</p>
+                            <p class="p_rel"> DIN (Director Identification Number) for all the Designated Partners</p>
+                            <p class="p_rel"> DSC (Digital Signature Certificate) for all the Designated Partners</p>
+                            <p class="p_rel"> Address proof for the office of LLP</p> -->
+
+                            <p class="p_rel">Forming an LLP requires at least two partners (no maximum number)</p>
+                            <p class="p_rel">There is no concept of shared capital, but each partner has to contribute towards capital of LLP</p>
+                            <p class="p_rel">DIN (Director Identification Number) for  Designated Partners</p>
+                            <p class="p_rel">DSC (Digital Signature Certificate) for  Designated Partners</p>
+
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                           <div>
+                              <!-- <p class="p_rel"> Copy of PAN Card of partners</p>
+                              <p class="p_rel"> Passport size photograph of partners</p>
+                              <p class="p_rel"> Copy of Aadhaar Card/ Voter identity card/ Driver’s license as address proof</p>
+                              <p class="p_rel"> Electricity/ Water bill/ Telephone bill/ Latest bank statement as proof of Registered
+                              Office (Business Place)</p>
+                              <p class="p_rel"> Copy of Sale Deed/Property Deed (If owned property)</p>
+                              <p class="p_rel"> Landlord NOC (Format will be provided)</p>
+                              <p class="p_rel"> Passport (in case of Foreign Nationals/ NRIs)</p>
+                              <p class="p_rel"> Digital Signature Certificate</p>
+                              <p class="p_rel"> Copy of Notarized Rental Agreement</p>
+                              <p class="p_rel"> Copy of NOC from the property owner</p> -->
+                              <p><b>A.</b></p>
+                              <p><b>Designated Partner's Documents</b></p>
+                              <p class="p_rel">Designated Partner's PAN</p>
+                              <p class="p_rel">Designated Partner's ID Proofs</p>
+                              <p class="p_rel">Aadhaar Card or Voter ID or Passport or Driver's License</p>
+                              <p class="p_rel">Designated Partner's Address Proofs:</p>
+                              <p class="p_rel">Latest one month Savings Bank statement or</p>
+                              <p class="p_rel">Latest Telephone Bill on his own name or</p>
+                              <p class="p_rel">Latest Moblie Bill on his name or</p>
+                              <p class="p_rel">Latest Electricity Bill on his own name.</p>
+                              <p class="p_rel">Designated Partner's latest passport size photograph</p>
+                              <p class="p_rel">Designated Partner's Email ids</p>
+                              <p class="p_rel">Designated Partner's Mobile Numbers linked with their Aadhar</p>
+                              <p class="p_rel">Incase of Foreign designated partners, International Passport is mandatory</p>
+                              <p><b>B.</b></p>
+                              <p><b>LLP Documents</b></p>
+
+                              <p class="p_rel">Registered Office Address Proof: Latest Power Bill</p>
+                              <p class="p_rel">No-objection letter from the Landlord.</p>
+                              <p class="p_rel">Rental Agreement from the landlord if the premises are rented.</p>
+                              <p class="p_rel">LLP email id.</p>
+                              <p><b>Documents required for partnership firm</b></p>
+
+                              <p class="p_rel">ID and Address Proof of Partners like PAN Card/Passport/Voter ID/Aadhar Card/Driving License Copy of the Partners.</p>
+                              <p class="p_rel">One Business Place Address proof :-
+                              if Property on Rented :- Need Rent Agreement and NOC from Landlord.
+                              if Property is own :- Need Electricity Bills or any other Address Proof.
+                              Note : Business place and home place can be same.</p>
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="steps">
+                              <div class="step">
+                               <div>
+                              <!-- <p><b>Step 1:</b> Arrange basic documents of Partners</p> 
+                              <p><b>Step 2:</b> Fill in an online form with accurate information</p> 
+                              <p><b>Step 3:</b> Apply for Digital Signature and DIN of Partners</p> 
+                              <p><b>Step 4:</b> Prepare all legal documents</p> 
+                              <p><b>Step 5:</b> Apply to name availability of the proposed LLP</p> 
+                              <p><b>Step 6:</b> Verification of all documents and forms by the respective Government dept and authorities</p> 
+                              <p><b>Step 7:</b> File Incorporation Docs with ROC</p> 
+                              <p><b>Step 8:</b> Get LLP Incorporation Certificate</p>
+                              <p><b>Step 9:</b> Drafting of LLP Agreement</p>
+                              <p><b>Step 10:</b> Filing of LLP Agreement</p> -->
+
+                            <p><b>Step 1:</b> Wind Up of Company</p>
+                            <p><b>Step 2:</b> Dissolution of Company</p>
+                            <p><b>Step 3:</b> Process of Winding up and Dissolution of Company</p>
+                            <p><b>LLP</b></p>
+                            <p><b>Step 1:</b> Striking Off Name of LLP</p>
+                            <p><b>Step 2:</b> Procedure for Striking Off Name</p>
+                            <p><b>Step 3:</b> Partners Liability After Striking Off</p>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+              @elseif(str_replace('-',' ',Request::segment(2))=="GST return filing")
+                     <section class="LLP" data-wow-delay="0.3s" >
+                    <div class="container">
+                      
+                      <div class="head_sec text-center">
+                        <div class="row align-items-center">
+                          <div class="col-lg-10 col-sm-12 text-left">
+                            <h2 class="llp-head"  data-aos="fade-up" data-aos-delay="400">GST Returns made easy</h2>
+                            <p class="llp-para"  data-aos="fade-up" data-aos-delay="400">Here’s everything you need to know:</p>
+                          </div>
+                        </div>
+                      </div>
+
+                  <ul class="nav nav-tabs"  data-aos="fade-up" data-aos-delay="400" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Types of GST</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Documents Required</a>
+                      </li>
+                      <!-- <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Process</a>
+                      </li>  -->
+                    </ul><!-- Tab panes -->
+                    <div class="tab-content"  data-aos="fade-up" data-aos-delay="400">
+                      <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                          <div class="gst_boxs">
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 1</h4></div>
+                                <div class="gst_box2"><p>Details of the outward supplies of the taxable goods and or services</p></div>
+                                <div class="gst_box3"><p>Monthly Quarterly (If opted under the QRMP scheme) </p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 3B</h4></div>
+                                <div class="gst_box2"><p>Summary of the outward supplies along with the input tax credit that is declared and the payment of the tax is affected by the taxpayer.</p></div>
+                                <div class="gst_box3"><p>Monthly Quarterly</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>CMP 08</h4></div>
+                                <div class="gst_box2"><p>Statement cum challan to make a tax payment by a taxpayer registered under the composition scheme under Section 10 of the CGST Act.</p></div>
+                                <div class="gst_box3"><p>Quarterly</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 4</h4></div>
+                                <div class="gst_box2"><p>Filed by the taxpayer that is registered under the composition scheme under Section 10 of the CGST Act.</p></div>
+                                <div class="gst_box3"><p>Annually</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 5</h4></div>
+                                <div class="gst_box2"><p>Filed by a Non-resident taxable person</p></div>
+                                <div class="gst_box3"><p>Monthly</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 6</h4></div>
+                                <div class="gst_box2"><p>Filed by the input service distributor to distribute the eligible input tax credit.</p></div>
+                                <div class="gst_box3"><p>Monthly</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 7</h4></div>
+                                <div class="gst_box2"><p>Filed by the government authorities</p></div>
+                                <div class="gst_box3"><p>Monthly</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 8</h4></div>
+                                <div class="gst_box2"><p>Details of supplies that are affected by the e-commerce operators and the amount of tax that is collected at the source by them.</p></div>
+                                <div class="gst_box3"><p>Monthly</p></div>
+                              </div>
+
+
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 9</h4></div>
+                                <div class="gst_box2"><p>Annual return for a normal taxpayer</p></div>
+                                <div class="gst_box3"><p>Annually</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 9C</h4></div>
+                                <div class="gst_box2"><p>Certified reconciliation statement</p></div>
+                                <div class="gst_box3"><p>Annually</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 10</h4></div>
+                                <div class="gst_box2"><p>Is filed by the taxpayer whose GST registration is cancelled</p></div>
+                                <div class="gst_box3"><p>Once the GST registration is cancelled or surrendered</p></div>
+                              </div>
+                              <div class="gst_box">
+                                <div class="gst_box1"><h4>GSTR 11</h4></div>
+                                <div class="gst_box2"><p>Details of the inward supplies are furnished by a person who has UIN and also claims a refund</p></div>
+                                <div class="gst_box3"><p>Monthly</p></div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="tab-pane" id="tabs-2" role="tabpanel">
+                        <div class="steps">
+                            <div class="step">
+                              <div>
+                                  <!-- <li>Invoices issued with GSTIN or B2B invoices.</li>
+                                  <li>Invoices issued without GSTIN or B2C invoices (only when total value is above ₹2.5 lakhs).</li>
+                                  <li>Inter-state sales consolidated</li>
+                                  <li>HSN-wise summary of all goods sold.</li>
+                                  <li>Any other debit or credit notes or advance receipts</li> -->
+                                  <li>Details of sales invoices issued </li>
+                                  <li>Details of advance received</li>
+                                  <li>Details of Cr note or Dr note issued</li>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    <!--  <div class="tab-pane" id="tabs-3" role="tabpanel">
+                          <div>
+                              <p><b>step1:</b> Visit the GST portal – <a href="https://www.gst.gov.in/" target="_blank">www.gst.gov.in</a></p>
+                              <p>Go to the E-Way bill generation portal at <a href="https://ewaybill.nic.in/" target="_blank">https://ewaybill.nic.in/ </a> and enter your login details.</p>
+                              <p><b>step2:</b> Enter the 15-digit GSTIN (GST Identification Number), issued on the basis of state code and PAN</p>
+                              <p><b>step3:</b>Upload the relevant invoices on the GST portal and receive the invoice reference number against each…</p>
+                              <p><b>step4:</b> Once all the invoices, inward returns, outward returns, and cumulative monthly returns are uploaded</p>
+                          </div>
+                      </div> -->
+                    </div>
+                    </div>
+                </section>
+              @elseif(str_replace('-',' ',Request::segment(2))=="accounting bookkeeping")
+                 <section class="LLP" data-wow-delay="0.3s" >
+                    <div class="container">
+                      
+                      <div class="head_sec text-center">
+                        <div class="row align-items-center">
+                          <div class="col-lg-10 col-sm-12 text-left">
+                            <h2 class="llp-head"  data-aos="fade-up" data-aos-delay="400">Bookkeeping made easy!</h2>
+                            <p class="llp-para"  data-aos="fade-up" data-aos-delay="400">Here’s everything you need to know:</p>
+                          </div>
+                        </div>
+                      </div>
+
+                     <ul class="nav nav-tabs"  data-aos="fade-up" data-aos-delay="400" role="tablist">
+                    <!--  <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Eligibility Criteria</a>
+                      </li> -->
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tabs-2" role="tab">Services Provided</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Documents Required</a>
+                      </li>
+                    </ul><!-- Tab panes -->
+                    <div class="tab-content"  data-aos="fade-up" data-aos-delay="400">
+                      <!-- <div class="tab-pane" id="tabs-1" role="tabpanel">
+                          <div class="round_box">
+                            <p>Some common circumstances for a change in the registered office address could be:</p>
+                            <ul>
+                              <li>Change within the same village/city</li>
+                              <li>Change within the same state</li>
+                              <li>Changing from one state to another</li>
+                            </ul>
+                          </div>
+                      </div> -->
+                      <div class="tab-pane active" id="tabs-2" role="tabpanel">
+                          <div>
+                              <ul>
+                              <li>Account maintenance with regular updates</li>
+                              <li>Accounts payable services</li>
+                              <li>Accounts receivable services</li>
+                              <li>General ledger services</li>
+                              <li>Bank Reconciliation</li>
+                              <li>TDS certificates (if TDS has been deducted by other)</li>
+                              <li>Tax payment challans (Self-assessment, advance tax, if you have deposited the same)</li>
+                              <li>In response to a notice received from the Department of Income Tax – You need the details of Original return/details of notice</li>
+                            </ul>
+                          </div>
+                      </div>
+                      <div class="tab-pane" id="tabs-3" role="tabpanel">
+                          <div class="steps">
+                            <div class="step">
+                              <div>
+                                  <li>Company / Business Incorporation Documents</li>
+                                  <li>Bank statement of a financial year or monthly statement (with remarks)</li>
+                                  <li>Purchase-Sales invoices, if any</li>
+                                  <li>Expense bills, if any</li>
+                                  <li>Any receivable and payable detail</li>
+                                  <li>Any other Government registration taken</li>
+                                  <li>Cash Expenses</li>
+                                  <li>Bank Statement of partner/ members with remarks if used for business transactions</li>
+                                  <li>Expenses made for company or LLP registration by promoters</li>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    </div>
+                </section>
+              @endif
 @section('scripts')
 
 @endsection

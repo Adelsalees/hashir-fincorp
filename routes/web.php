@@ -31,9 +31,10 @@ Route::get('/', function () {
 Auth::routes();
 
 //Front end routes
-Route::get('/home', 'Front\HomeController@index')->name('home');
+Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/services/{service}','Front\ServicesController@ServiceDetail');
 Route::post('/service-enquiry','Front\EnquiryController@ServiceRequest')->name('service.enquiry');
+Route::post('/enquiry','Front\EnquiryController@Contact')->name('enquiry');
 
 //admin end routes
 Route::prefix('admin')->group(function () {
@@ -57,6 +58,3 @@ Route::prefix('admin')->group(function () {
   Route::post('/enquiry/bulk-delete/', 'Admin\EnquiryController@destroy');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
-  return view('front.home');
-})->name('home');

@@ -514,7 +514,8 @@
               </div>
     
               <div class="col-lg-6">
-                <form action="forms/contact.php" method="post" class="php-email-form">
+                <form class="contact-form" action="{{route('enquiry')}}" method="post" id="contact-form" >
+                @csrf
                   <div class="row gy-4">
     
                     <div class="col-md-6">
@@ -522,11 +523,11 @@
                     </div>
     
                     <div class="col-md-6 ">
-                      <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                      <input type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" class="form-control" name="email" placeholder="Your Email" required>
                     </div>
     
                     <div class="col-md-12">
-                      <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                      <input type="text" class="form-control" name="phone" placeholder="Contact Number"  data-inputmask='"mask": "+91 (999) 999-9999"' data-inputmask-clearincomplete="true" data-mask required>
                     </div>
     
                     <div class="col-md-12">
@@ -538,7 +539,7 @@
                       <div class="error-message"></div>
                       <div class="sent-message">Your message has been sent. Thank you!</div>
     
-                      <button type="submit">Send Message</button>
+                      <button type="submit" class="submit">Send Message</button>
                     </div>
     
                   </div>

@@ -37,6 +37,7 @@
     color: #0A645A;
     margin-bottom: 22px;
     text-align: center;
+    text-transform: capitalize;
 }
 .service .banner .banner_form input,.service .banner .banner_form select,.service .banner .banner_form textarea {
     font-size: 14px;
@@ -61,6 +62,176 @@
     border: 2px solid #0A645A;
     border-radius: 20rem;
    
+}.help_section {
+    padding-bottom: 50px;
+}
+.help_section .trade-head{
+   
+    font-family: 'Quicksand', sans-serif;
+    font-size: 46px;
+    color: #1e1c1f;
+    line-height: 1.2;
+}
+.help_section .trade-para{
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333333;
+    font-weight: 400;
+}
+.bg_white_box {
+    background-color: #0A645A;
+    padding: 50px 20px;
+    border-radius: 25px;
+    color: #fff;
+}
+.bg_white_box ul{
+    list-style:disc;
+}
+.bg_white_box ul li{
+    text-align: start;
+}
+.help_txt h3{
+    font-size: 22pt;
+}
+.help_section .banner_count_box {
+    border: 3px solid #0A645A;
+    background-color: #0A645A;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-bottom: 50%;
+    height: 90%;
+    padding: 30px 25px;
+    height: 90% !important;
+    margin-bottom: 10% !important;  
+}
+.help_section .banner_count_box.text-center h3 {
+    font-size: 26px;
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+}
+.help_section  .banner_count_box p {
+    font-size: 18px;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+    margin-top: 15px;
+}
+.LLP{
+    background-color:#0A645A ;
+    padding: 100px 0;
+}
+.LLP .head_sec {
+    margin-bottom: 50px;
+}
+.LLP h2{
+    font-size: 46px;
+    color: #fff;
+    line-height: 1.2;
+    font-family: 'Quicksand', sans-serif;
+}
+.LLP h2.llp-head{
+    text-align: start;
+}
+.LLP p{
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Quicksand', sans-serif;
+}
+.LLP p.llp-para{
+    margin-top: 15px;
+    text-align: start;
+}
+.LLP .nav-tabs {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: inherit;
+    margin-top: 70px;
+}
+.LLP .nav-tabs .nav-link{
+    border: none;
+    color: #fff;
+    font-size: 17px;
+}
+.LLP .nav-tabs .nav-link.active {
+    color: #fff;
+    font-size: 17px;
+    border-bottom: 2px solid #ffffff;
+    opacity: 1;
+    background-color: transparent !important;
+}
+.LLP .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .nav-tabs .nav-link {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 10px 0;
+    margin: 0 65px 0 0;
+    border-bottom: 2px solid transparent;
+    padding: 0;
+    line-height: 1.3;
+    font-size: 20px;
+    color: #000;
+    opacity: 0.3;
+    text-transform: uppercase;
+    letter-spacing: 2.1px;
+    font-weight: 600;
+    transition: 0.2s;
+    font-family: 'Quicksand', sans-serif;
+    padding-bottom: 5px;
+}
+
+.LLP  .tab-content  ul{
+   list-style: disc; 
+}
+.LLP  .tab-content p{
+    color: #000;
+    margin-left: 25px;
+}
+.LLP .tab-content>.tab-pane {
+    margin: 60px auto 0;
+    background: #fff;
+    -webkit-box-shadow: 0px 2px 18px rgb(0 0 0 / 11%);
+    -moz-box-shadow: 0px 2px 18px rgba(0,0,0,0.11);
+    box-shadow: 0px 2px 18px rgb(0 0 0 / 11%);
+    padding: 45px;
+    border-radius: 25px;
+    position: relative;
+}
+.LLP .round_box{
+    position: relative;
+}
+.LLP .p_rel:before {
+    content: "";
+    box-sizing: border-box;
+    content: "✓";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    margin-left: -15px;
+    position: relative;
+    left: -10px;
+    top: 0px;
+    font-size: 22px;
+
+}
+.LLP .gst_box2, .gst_box3 {
+    width: 37.25%;
+    border-left: 2px solid #0A645A;
+    padding-left: 40px;
+}
+.LLP .gst_box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.LLP .gst_box1 {
+    width: 25%;
+}
+.LLP .gst_box2 {
+    padding-right: 20px;
 }
 @media screen and (max-width: 767px){
     .service .banner h3{
@@ -68,5 +239,32 @@
     }
     .service .banner .banner_form{
         margin-top: 20px;
+    }
+    .LLP .nav-tabs .nav-item{
+        margin-bottom: 20px;
+    }
+    .LLP .tab-content>.tab-pane{
+        margin: 15px auto 0;
+    }
+    .help_section .trade-head{
+        font-size: 32px;
+    }
+    section{
+        padding: 30px 0;
+    }
+    .LLP .nav-tabs{
+        margin-top: 26px;
+    }
+    .LLP h2{
+        font-size: 33px;
+    }
+    .LLP{
+        padding: 50px 0;
+    }
+    .LLP .head_sec{
+        margin-bottom: 25px;
+    }
+    .LLP .tab-content>.tab-pane{
+        padding: 26px;
     }
 }

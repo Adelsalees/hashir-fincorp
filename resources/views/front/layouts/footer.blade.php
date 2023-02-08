@@ -48,12 +48,12 @@
           <div class="col-lg-3 col-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Trademark Registration</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Private Limited Company</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Proprietorship firm</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">GST Return Filing</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Limited Liability Partnership</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Accounting & Bookkeeping</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{url('/services/trademark-registration')}}">Trademark Registration</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{url('/services/private-limited-company')}}">Private Limited Company</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{url('/services/proprietorship-firm')}}">Proprietorship firm</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{url('/services/GST-return-filing')}}">GST Return Filing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{url('/services/limited-liability-partnership')}}">Limited Liability Partnership</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{url('/services/accounting-bookkeeping')}}">Accounting & Bookkeeping</a></li>
             </ul>
           </div>
 
