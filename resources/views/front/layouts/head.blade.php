@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<meta name="google-site-verification" content="irvQ1Aqk49UyO7xrbQMuvCfKoocYmHNa3Uvcd8VBWGQ" />
 
 <title>{{ config('app.name', 'Laravel') }} - Registration, Income Tax, Virtual Accounting, Trademark Services</title>
 
